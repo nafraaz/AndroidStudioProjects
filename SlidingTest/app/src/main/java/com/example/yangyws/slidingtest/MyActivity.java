@@ -39,7 +39,6 @@ public class MyActivity extends Activity {
      */
     private BidirSlidingLayout bidirSldingLayout;
     private BidirSlidingLayout bidirSldingLayout2;
-    private BidirSlidingLayout bidirSldingLayout3;
     /**
      * 在内容布局上显示的ListView
      */
@@ -105,7 +104,7 @@ public class MyActivity extends Activity {
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
 
     }
-
+    //第一畫面 監聽動作
     public void set1(){
         setContentView(layout1);
         bidirSldingLayout = (BidirSlidingLayout) findViewById(R.id.bidir_sliding_layout);
@@ -119,14 +118,15 @@ public class MyActivity extends Activity {
         contentListAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 contentItems);
 
-
+        //改用自定義LIST layout
         contentList2.setAdapter(adapter);
+        //監聽click
         contentList2.setOnItemClickListener(on1);
         bidirSldingLayout.setScrollEvent(contentList);
         bidirSldingLayout.closeTwo();
     }
 
-
+    //第二畫面 監聽動作
     public void set2(){
         setContentView(layout2);
         bidirSldingLayout2 = (BidirSlidingLayout) findViewById(R.id.bidir_sliding_layout2);
@@ -138,10 +138,13 @@ public class MyActivity extends Activity {
         contentListAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 contentItems);
         contentList2.setAdapter(contentListAdapter2);
+
+        //監聽click
         contentList2.setOnItemClickListener(on2);
         bidirSldingLayout2.setScrollEvent(contentList3);
-        bidirSldingLayout2.closeTwo();
 
+
+        bidirSldingLayout2.closeTwo();
     }
 
 
